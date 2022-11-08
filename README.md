@@ -8,6 +8,11 @@
 * Getting started with AWS Glue and Python (Pyspark) for Beginners #1
 * https://www.youtube.com/watch?v=XeqWKn1jOI8&t=134s
 ------------------------------------------------------------------------
-* Getting started with AWS Glue and Python (Pyspark) for Beginners #2
+* Getting started with AWS Glue and Python (Pyspark) for Beginners #2 Pyspark Basic 
 * https://www.youtube.com/watch?v=lVdvOltkg8c
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+* Getting started with AWS Glue and Python (Pyspark) for Beginners #3
+* In this video i explain basic of Crawler and show you how to connect and create a crawler 
+* https://www.youtube.com/watch?v=_VgWkKIhU34
 ------------------------------------------------------------------------
