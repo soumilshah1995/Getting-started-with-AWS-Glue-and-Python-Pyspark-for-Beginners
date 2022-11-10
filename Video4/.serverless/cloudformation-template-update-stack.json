@@ -1,0 +1,115 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "ServerlessDeploymentBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "ServerlessDeploymentBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "ServerlessDeploymentBucket"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "ServerlessDeploymentBucket"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "ServerlessDeploymentBucket"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GlueDatabase": {
+      "Type": "AWS::Glue::Database",
+      "Properties": {
+        "CatalogId": "043916019468",
+        "DatabaseInput": {
+          "Name": "learndb"
+        }
+      }
+    },
+    "TableGlueCrawler": {
+      "Type": "AWS::Glue::Crawler",
+      "Properties": {
+        "DatabaseName": "learndb",
+        "Name": "s3_crawler",
+        "RecrawlPolicy": {
+          "RecrawlBehavior": "CRAWL_EVERYTHING"
+        },
+        "Role": "arn:aws:iam::043916019468:role/Lab3",
+        "SchemaChangePolicy": {
+          "DeleteBehavior": "DEPRECATE_IN_DATABASE"
+        },
+        "Targets": {
+          "S3Targets": [
+            {
+              "Path": "s3://glue-learn-begineers/soumil_data/"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": {
+        "Ref": "ServerlessDeploymentBucket"
+      },
+      "Export": {
+        "Name": "sls-sls-create-glue-crawler-dev-ServerlessDeploymentBucketName"
+      }
+    }
+  }
+}
