@@ -16,6 +16,19 @@ Tutorials
 * https://www.youtube.com/watch?v=_VgWkKIhU34
 ------------------------------------------------------------------------
 
+
+------------------------------------------------------------------------
+Commands 
+------------------------------------------------------------------------
+
+```
+npx serverless config credentials --provider aws --key XXX  --secret XXX -o
+npx sls deploy
+
+
+```
+
+
 ## Watch More 
 
 
