@@ -20,7 +20,7 @@ Tutorials
 * Getting started with AWS Glue and Python (Pyspark) for Beginners #5 Glue Script
 * https://www.youtube.com/watch?v=u6GDqPzY5Hg&feature=youtu.be
 ------------------------------------------------------------------------
-* Getting started with AWS Glue and Python (Pyspark) for Beginners #4 Glue Script Infrasture code
+* Getting started with AWS Glue and Python (Pyspark) for Beginners #6 Glue Script Infrasture code
 * 
 
 
