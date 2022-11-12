@@ -26,6 +26,10 @@ Tutorials
 * Getting started with AWS Glue and Python (Pyspark) for Beginners #7 Schedule Glue Script
 * https://www.youtube.com/watch?v=4LJ-rLI_tA4&t=78s
 
+* Getting started with AWS Glue and Python (Pyspark) for Beginners #8 Source Schema Change
+* https://www.youtube.com/watch?v=XdUhGmAOn9E
+* Resource : https://aws.amazon.com/blogs/big-data/identify-source-schema-changes-using-aws-glue/
+
 
 ------------------------------------------------------------------------
 Commands 
